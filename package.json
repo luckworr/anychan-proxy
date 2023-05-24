@@ -1,0 +1,32 @@
+{
+  "name": "anychan-proxy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CORS proxy for anychan demo site",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@catamphetamine <purecatamphetamine@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/catamphetamine/anychan-proxy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/catamphetamine/anychan-proxy.git"
+  },
+  "keywords": [
+    "cors",
+    "proxy"
+  ],
+  "homepage": "https://gitlab.com/catamphetamine/anychan-proxy#readme",
+  "dependencies": {
+    "http-proxy": "1.11.1",
+    "proxy-from-env": "0.0.1"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
