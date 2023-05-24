@@ -12,5 +12,5 @@ proxy.createServer({
   originWhitelist: config.origins, // Allow origins.
   requireHeader: ['origin', 'x-requested-with'], // The HTTP request must come from a web browser.
 }).listen(port, host, function() {
-  console.log('Running CORS proxy at http(s)://' + (host === '0.0.0.0' ? '<any-host>' : host) + ':' + port)
+  console.log('Running CORS proxy at http(s)://' + (host === '0.0.0.0' ? '<hostname>' : host) + ':' + port)
 })

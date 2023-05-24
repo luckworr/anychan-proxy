@@ -8,7 +8,7 @@ Based on [`cors-anywhere`](https://github.com/Rob--W/cors-anywhere) with some ch
 
 Configuration is very simple and should be specified in `config.json` file.
 
-* `host: string` — The hostname to listen on. Example: `"0.0.0.0"` means "listen on all possible hostnames" (like `localhost`). This parameter is ignored when `HOST` environment variable is set.
+* `host: string` — The hostname to listen on. The simplest value that always works is [`"0.0.0.0"`](https://www.howtogeek.com/225487/what-is-the-difference-between-127.0.0.1-and-0.0.0.0/) which means "listen on all possible host names for this host". This parameter is ignored when `HOST` environment variable is set.
 
 * `port: number` — The port to listen on. Example: `8080`. This parameter is ignored when `PORT` environment variable is set.
 
@@ -42,8 +42,8 @@ To proxy a URL through the CORS proxy, one could send an HTTP request to:
 
 For example, if `host` is set to `"0.0.0.0"` and `port` is set to `8080`, then to proxy `https://google.com/page` URL through the CORS proxy, one could send an HTTP request to:
 
-* `http://localhost:8080/https://google.com/page`
-* `http://localhost:8080/?url=https%3A%2F%2Fgoogle.com%2Fpage`
+* `http://my-cors-proxy.com:8080/https://google.com/page`
+* `http://my-cors-proxy.com:8080/?url=https%3A%2F%2Fgoogle.com%2Fpage`
 
 ## Hosting
 
