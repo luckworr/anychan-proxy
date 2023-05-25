@@ -9,8 +9,10 @@ var host = process.env.HOST || config.host
 var port = process.env.PORT || config.port
 
 proxy.createServer({
-  originWhitelist: config.origins, // Allow origins.
-  requireHeader: ['origin', 'x-requested-with'], // The HTTP request must come from a web browser.
+  originWhitelist: config.allowedRequestOrigins || [],
+  useCookies: config.cookies,
+  shareCookiesBetweenAllowedRequestOrigins: config.shareCookiesBetweenAllowedRequestOrigins,
+  requireHeader: ['origin', 'x-requested-with'] // The HTTP request must come from a web browser.
 }).listen(port, host, function() {
   console.log('Running CORS proxy at http(s)://' + (host === '0.0.0.0' ? '<hostname>' : host) + ':' + port)
 })

@@ -47,7 +47,19 @@ For example, if `host` is set to `"0.0.0.0"` and `port` is set to `8080`, then t
 
 ## Hosting
 
-This proxy could be hosted at Vercel for free. See an [article](https://geshan.com.np/blog/2021/01/free-nodejs-hosting/) on free Node.js hosting for more details.
+### An example of setting up a free CORS proxy on Vercel
+
+[Original article](https://geshan.com.np/blog/2021/01/free-nodejs-hosting/)
+
+* Clone the [repo](https://gitlab.com/catamphetamine/anychan-proxy) on GitLab.
+* Edit `config.json` as you see fit and push the changes.
+* Login to [Vercel](https://vercel.com/) using your GitLab account.
+* "Add New" → "Project".
+* Choose "GitLab".
+* Click the "Import" button next to the cloned repo.
+* After the project has been deployed, it will show the website URL. Use it as a proxy server URL. Example for proxying a URL: `https://anychan-proxy.vercel.app?url={urlEncoded}`.
+
+<!-- To debug possible errors, one could view the console logs by going to the "Logs" tab of the project in Vercel. -->
 
 ## Redirects
 
