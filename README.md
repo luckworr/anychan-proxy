@@ -28,9 +28,9 @@ For that reason, enabling `cookies: true` flag also requires setting up `allowed
 
 ### Request Headers
 
-#### `x-cookies`
+#### `x-cookie`
 
-Web browsers [don't allow](https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie) client-side javascript code to set the value of the `cookies` header of an HTTP request. To work around that, there's an `x-cookie` header: if specified, the contents of `x-cookies` request header will be appended to the `cookies` request header using `"; "` as a separator. This is a way to add any additional cookies to a proxied HTTP request.
+Web browsers [don't allow](https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie) client-side javascript code to set the value of the `cookie` header of an HTTP request. To work around that, there's an `x-cookie` header: if specified, the contents of `x-cookie` request header will be appended to the `cookie` request header using `"; "` as a separator. This is a way to add any additional cookies to a proxied HTTP request.
 
 #### `x-set-cookies`
 
@@ -38,9 +38,9 @@ Web browsers [don't expose](https://developer.mozilla.org/en-US/docs/Web/API/Hea
 
 ### Respose Headers
 
-#### `x-cookies`
+#### `x-cookie`
 
-The value of the `x-cookies` response header is gonna be the value of the `cookies` request header. So it could be used to debug exactly what cookies have been sent to the target URL.
+The value of the `x-cookie` response header is gonna be the value of the `cookie` request header. So it could be used to debug exactly what cookies have been sent to the target URL.
 
 #### `x-cookies-enabled`
 
