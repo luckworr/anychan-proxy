@@ -26,6 +26,26 @@ To see how allowing any HTTP request origin would be a security vulnerability in
 
 For that reason, enabling `cookies: true` flag also requires setting up `allowedRequestOrigins` and also explicitly enabling the `shareCookiesBetweenAllowedRequestOrigins: true` flag.
 
+### `x-cookies-enabled`
+
+To check if cookies have been enabled, see the value of an HTTP response header called `x-cookies-enabled`: it's gonna be either `"true"` or `"false"`.
+
+### `x-set-cookies`
+
+Web browsers [don't expose](https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie) `set-cookie` headers of an HTTP response to client-side javascript code. To work around that limitation and see what cookies exactly have been set by the server, one could pass an HTTP request header called `x-set-cookies` with value `"true"`. In that case, the HTTP response is gonna contain a header called `x-set-cookies` whose value is gonna be a stringified JSON array of all `set-cookies` headers' values, if there were any in the server's response.
+
+### `x-cookies`
+
+If specified, the contents of `x-cookies` request header will be appended to the `cookies` request header using `"; "` as a separator. This is a way to add any additional cookies to a proxied HTTP request.
+
+<!--
+### `SameSite=None`
+
+If a website receives cookies from `https://proxy.com`, the web browser is gonna send those cookies only to `https://proxy.com` in subsequent HTTP requests. To lift that restriction, cookies could be configured with `SameSize=None` policy. To do that, pass `x-set-cookie-same-site-none` response header with value `"true"`.
+-->
+
+### x-set-cookies
+
 ## Run
 
 ```
