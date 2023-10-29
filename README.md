@@ -26,17 +26,25 @@ To see how allowing any HTTP request origin would be a security vulnerability in
 
 For that reason, enabling `cookies: true` flag also requires setting up `allowedRequestOrigins` and also explicitly enabling the `shareCookiesBetweenAllowedRequestOrigins: true` flag.
 
-### `x-cookies-enabled`
+### Request Headers
 
-To check if cookies have been enabled, see the value of an HTTP response header called `x-cookies-enabled`: it's gonna be either `"true"` or `"false"`.
+#### `x-cookies`
 
-### `x-set-cookies`
+Web browsers [don't allow](https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie) client-side javascript code to set the value of the `cookies` header of an HTTP request. To work around that, there's an `x-cookie` header: if specified, the contents of `x-cookies` request header will be appended to the `cookies` request header using `"; "` as a separator. This is a way to add any additional cookies to a proxied HTTP request.
+
+#### `x-set-cookies`
 
 Web browsers [don't expose](https://developer.mozilla.org/en-US/docs/Web/API/Headers/getSetCookie) `set-cookie` headers of an HTTP response to client-side javascript code. To work around that limitation and see what cookies exactly have been set by the server, one could pass an HTTP request header called `x-set-cookies` with value `"true"`. In that case, the HTTP response is gonna contain a header called `x-set-cookies` whose value is gonna be a stringified JSON array of all `set-cookies` headers' values, if there were any in the server's response.
 
-### `x-cookies`
+### Respose Headers
 
-If specified, the contents of `x-cookies` request header will be appended to the `cookies` request header using `"; "` as a separator. This is a way to add any additional cookies to a proxied HTTP request.
+#### `x-cookies`
+
+The value of the `x-cookies` response header is gonna be the value of the `cookies` request header. So it could be used to debug exactly what cookies have been sent to the target URL.
+
+#### `x-cookies-enabled`
+
+To check if cookies have been enabled, see the value of an HTTP response header called `x-cookies-enabled`: it's gonna be either `"true"` or `"false"`.
 
 <!--
 ### `SameSite=None`
